@@ -1,5 +1,7 @@
 <?php
 
+namespace Support;
+
 /**
  * Convert a number from one base to another.
  */

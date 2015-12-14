@@ -1,7 +1,20 @@
 <?php
-require 'helpers.php';
-require '../BaseConverter.php';
-require '../App/Controller.php';
 
-$controller = new Controller;
-$controller->showPage();
+/*
+|--------------------------------------------------------------------------
+| Boot the application.
+|--------------------------------------------------------------------------
+*/
+
+require __DIR__ . '/../boot/application.php';
+
+/*
+|--------------------------------------------------------------------------
+| Route the request.
+|--------------------------------------------------------------------------
+*/
+
+$router = new Support\Router();
+$response = new Support\Response;
+
+$response->send($router->dispatch());
