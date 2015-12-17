@@ -30,10 +30,6 @@ class PageController extends Controller
         $inputBase = isset($_REQUEST['input-base']) ? $_REQUEST['input-base'] : '';
         $outputBase = isset($_REQUEST['output-base']) ? $_REQUEST['output-base'] : '';
 
-        // if ($this->inputFailsValidation($inputNumber, $inputBase, $outputBase)) {
-        //     return 'Input failed validation';
-        // }
-
         $bc = new BaseConverter($inputNumber, $inputBase, $outputBase);
 
         return $bc->convertToUpper();

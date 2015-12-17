@@ -36,6 +36,16 @@ class BaseConverter
     }
 
     /**
+     * Convert number using uppercase alpha digits.
+     *
+     * @return string
+     */
+    public function convertToUpper()
+    {
+        return $this->toUpper($this->convert());
+    }
+
+    /**
      * Set input number.
      *
      * @param  mixed  $number
@@ -66,16 +76,6 @@ class BaseConverter
     public function setOutputBase($base)
     {
         $this->outputBase = $base;
-    }
-
-    /**
-     * Convert number using uppercase alpha digits.
-     *
-     * @return string
-     */
-    public function convertToUpper()
-    {
-        return $this->toUpper($this->convert());
     }
 
     /**
