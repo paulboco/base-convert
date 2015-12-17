@@ -1,16 +1,26 @@
+Vue.component('base-select', {
+    template: '#base-select',
+    props: ['base'],
+    data: function() {
+        return {
+            baseRadioOptions: [
+                {key: 'Binary', value: 2},
+                {key: 'Octal', value: 8},
+                {key: 'Decimal', value: 10},
+                {key: 'Hexidecimal', value: 16},
+            ],
+            base: 10
+        }
+    }
+});
+
 new Vue({
     el: '#app',
     data: {
         inputNumber: '',
         inputBase: 10,
         outputBase: 16,
-        result: '',
-        baseOptions: [
-            {key: 'Binary', value: 2},
-            {key: 'Octal', value: 8},
-            {key: 'Decimal', value: 10},
-            {key: 'Hexidecimal', value: 16},
-        ],
+        result: ''
     },
     ready: function () {
         this.result = this.convert();

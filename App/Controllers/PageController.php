@@ -7,6 +7,10 @@ use Support\Controller;
 
 class PageController extends Controller
 {
+    public function test()
+    {
+        return $this->view->make('page/test');
+    }
     /**
      * The base convert input page.
      */

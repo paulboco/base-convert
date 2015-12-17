@@ -8,7 +8,6 @@
         <div>
             <label class="header" for="inputNumber">Number:</label>
             <input type="text"
-                name="inputNumber"
                 v-model="inputNumber"
                 @keyup="convert"
                 placeholder="Enter a number"
@@ -16,45 +15,13 @@
             >
         </div>
         <div>
-            <label class="header" for="inputBase">Base:</label>
-            <label v-for="baseOption in baseOptions">
-                <input type="radio"
-                    name="inputBase"
-                    value="{{ baseOption.value }}"
-                    @change="convert"
-                    v-model="inputBase"
-                 >
-                {{ baseOption.key }}
-            </label>
-            <label class="dropdown">By integer:
-                <select v-model="inputBase" @change="convert">
-                    <?php foreach (range(2, 36) as $base): ?>
-                        <option value="<?php echo $base ?>"><?php echo $base ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </label>
+            <base-select :base="data:inputBase"></base-select>
         </div>
     </fieldset>
     <fieldset>
         <legend>Output</legend>
         <div>
-            <label class="header" for="outputBase">Base:</label>
-            <label v-for="baseOption in baseOptions">
-                <input type="radio"
-                    name="outputBase"
-                    value="{{ baseOption.value }}"
-                    @change="convert"
-                    v-model="outputBase"
-                 >
-                {{ baseOption.key }}
-            </label>
-            <label class="dropdown">By integer:
-                <select v-model="outputBase" @change="convert">
-                    <?php foreach (range(2, 36) as $base): ?>
-                        <option value="<?php echo $base ?>"><?php echo $base ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </label>
+            <base-select :base="data:outputBase"></base-select>
         </div>
     </fieldset>
     <fieldset>
@@ -65,6 +32,27 @@
     <pre class="debug">{{ $data|json }}</pre>
 </div>
 
+<template id="base-select">
+    <label class="header">Base:</label>
+    <label v-for="baseRadioOption in baseRadioOptions">
+        <input type="radio"
+            value="{{ baseRadioOption.value }}"
+            HIDE@change="convert"
+            v-model=base
+         >
+        {{ baseRadioOption.key }}
+    </label>
+</template>
+
 <script src="/js/main.js"></script>
 
 <?php self::inject('layout/footer') ?>
+
+<!--
+    <label class="dropdown">By integer:
+        <select v-model="inputBase" @change="convert">
+            <?php foreach (range(2, 36) as $base): ?>
+                <option value="<?php echo $base ?>"><?php echo $base ?></option>
+            <?php endforeach; ?>
+        </select>
+    </label> -->
