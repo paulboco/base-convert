@@ -1,7 +1,6 @@
 new Vue({
     el: '#app',
     data: {
-        parameters: {inputNumber: 'foo', inputBase: 10, outputBase: 16},
         inputNumber: '',
         inputBase: 10,
         outputBase: 16,
@@ -24,6 +23,9 @@ new Vue({
             }
         }
     },
+    ready: function () {
+        this.convert();
+    },
     watch: {
         'inputNumber': function() {
             this.convert();
@@ -35,17 +37,12 @@ new Vue({
             this.convert();
         }
     },
-    ready: function () {
-        this.convert();
-    },
     methods: {
         convert: function() {
-// console.log(this.parameters.inputNumber);
             var url = '/page/convert?input-number='
                 + this.inputNumber + '&input-base='
                 + this.inputBase + '&output-base='
                 + this.outputBase;
-
             this.$http.get(url).success(function(result) {
                 this.$set('result', result);
             }).error(function(error) {

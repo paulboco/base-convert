@@ -23,7 +23,7 @@
         <legend>Result</legend>
         <label class="result" v-show="result != 0">{{ result }}</label>
     </fieldset>
-    <!-- <pre class="debug">{{ $data|json }}</pre> -->
+    <pre class="debug">{{ $data|json }}</pre>
 </div>
 
 <template id="base-selector-template">
