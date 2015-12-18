@@ -4,9 +4,8 @@
 
 <div id="app" v-cloak>
     <fieldset>
-        <legend>Input</legend>
         <div>
-            <label class="header" for="inputNumber">Number:</label>
+            <label class="header" for="inputNumber">Convert:</label>
             <input type="text"
                 v-model="inputNumber"
                 placeholder="Enter a number"
@@ -14,25 +13,21 @@
             >
         </div>
         <div>
-            <base-selector :base.sync="inputBase"></base-selector>
+            <base-selector :base.sync="inputBase" label="From base:"></base-selector>
         </div>
-    </fieldset>
-    <fieldset>
-        <legend>Output</legend>
         <div>
-            <base-selector :base.sync="outputBase"></base-selector>
+            <base-selector :base.sync="outputBase" label="To base:"></base-selector>
         </div>
     </fieldset>
     <fieldset>
         <legend>Result</legend>
-        <h2 v-show="result != 0">{{ result }}</h2>
+        <label class="result" v-show="result != 0">{{ result }}</label>
     </fieldset>
-
-    <pre class="debug">{{ $data|json }}</pre>
+    <!-- <pre class="debug">{{ $data|json }}</pre> -->
 </div>
 
 <template id="base-selector-template">
-    <label class="header">Base:</label>
+    <label class="header">{{ label }}</label>
     <label v-for="baseRadioOption in baseRadioOptions">
         <input type="radio"
             value="{{ baseRadioOption.value }}"

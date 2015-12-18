@@ -10,7 +10,7 @@ new Vue({
     components: {
         'base-selector': {
             template: '#base-selector-template',
-            props: ['base'],
+            props: ['base', 'label'],
             data: function() {
                 return {
                     baseRadioOptions: [
@@ -36,7 +36,7 @@ new Vue({
         }
     },
     ready: function () {
-        this.result = this.convert();
+        this.convert();
     },
     methods: {
         convert: function() {
@@ -45,6 +45,7 @@ new Vue({
                 + this.inputNumber + '&input-base='
                 + this.inputBase + '&output-base='
                 + this.outputBase;
+
             this.$http.get(url).success(function(result) {
                 this.$set('result', result);
             }).error(function(error) {

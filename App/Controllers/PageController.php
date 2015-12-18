@@ -7,10 +7,6 @@ use Support\Controller;
 
 class PageController extends Controller
 {
-    public function test()
-    {
-        return $this->view->make('page/test');
-    }
     /**
      * The base convert input page.
      */
@@ -32,40 +28,8 @@ class PageController extends Controller
 
         $bc = new BaseConverter($inputNumber, $inputBase, $outputBase);
 
-        return $bc->convertToUpper();
-    }
-
-    /**
-     * Validate input.
-     *
-     * @param  string  $inputNumber
-     * @param  integer  $inputBase
-     * @param  integer  $outputBase
-     * @return boolean
-     */
-    private function inputFailsValidation($inputNumber, $inputBase, $outputBase)
-    {
-        if (is_null($inputNumber) or is_null($inputBase) or is_null($outputBase)) {
-            return true;
-        }
-
-        if (!$this->inRange($inputBase)) {
-            return true;
-        }
-
-        if (!$this->inRange($outputBase)) {
-            return true;
-        }
-    }
-
-    /**
-     * Check that a base paramter is in range.
-     *
-     * @param  integer  $base
-     * @return boolean
-     */
-    private function inRange($base)
-    {
-        return (2 <= $base) && ($base <= 36);
+        header('Content-Type: application/json');
+        echo json_encode($bc->convertToUpper());
+        die;
     }
 }

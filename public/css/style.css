@@ -16,7 +16,7 @@ fieldset>legend {
 fieldset>div>label {
     margin-top: 10px;
     display: inline-block;
-    min-width: 100px;
+    min-width: 120px;
     /*padding-left: 10px;*/
 }
 fieldset>div>input {
@@ -68,9 +68,13 @@ pre.debug {
 label.dropdown {
     margin-left: 30px;
 }
-label.header {
+label.header, label.result {
     margin-left: 10px;
     font-weight: bold;
+}
+label.result {
+    font-size: 50px;
+    color: green;
 }
 .container {
     margin: 0 100px;

@@ -12,9 +12,9 @@ class BaseConverter
     protected $outputBase;
 
     public function __construct(
-        $inputNumber = null,
-        $inputBase = null,
-        $outputBase = null)
+        $inputNumber = '',
+        $inputBase = 0,
+        $outputBase = 0)
     {
         $this->inputNumber = $inputNumber;
         $this->inputBase = $inputBase;
