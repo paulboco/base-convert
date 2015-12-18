@@ -1,14 +1,15 @@
 new Vue({
     el: '#app',
     data: {
+        parameters: {inputNumber: 'foo', inputBase: 10, outputBase: 16},
         inputNumber: '',
         inputBase: 10,
         outputBase: 16,
         result: ''
     },
     components: {
-        'base-select': {
-            template: '#base-select',
+        'base-selector': {
+            template: '#base-selector-template',
             props: ['base'],
             data: function() {
                 return {
@@ -39,6 +40,7 @@ new Vue({
     },
     methods: {
         convert: function() {
+// console.log(this.parameters.inputNumber);
             var url = '/page/convert?input-number='
                 + this.inputNumber + '&input-base='
                 + this.inputBase + '&output-base='

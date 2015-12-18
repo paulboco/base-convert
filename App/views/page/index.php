@@ -14,13 +14,13 @@
             >
         </div>
         <div>
-            <base-select :base.sync="inputBase"></base-select>
+            <base-selector :base.sync="inputBase"></base-selector>
         </div>
     </fieldset>
     <fieldset>
         <legend>Output</legend>
         <div>
-            <base-select :base.sync="outputBase"></base-select>
+            <base-selector :base.sync="outputBase"></base-selector>
         </div>
     </fieldset>
     <fieldset>
@@ -31,7 +31,7 @@
     <pre class="debug">{{ $data|json }}</pre>
 </div>
 
-<template id="base-select">
+<template id="base-selector-template">
     <label class="header">Base:</label>
     <label v-for="baseRadioOption in baseRadioOptions">
         <input type="radio"
@@ -47,6 +47,8 @@
     </label>
 </template>
 
+<script src="/js/vue.js"></script>
+<script src="/js/vue-resource.js"></script>
 <script src="/js/main.js"></script>
 
 <?php self::inject('layout/footer') ?>
