@@ -10,9 +10,9 @@ class PageController extends Controller
     /**
      * The base convert input page.
      */
-    public function index()
+    public function converter()
     {
-        return $this->view->make('page/index');
+        return $this->view->make('page/converter');
     }
 
     /**
@@ -22,11 +22,10 @@ class PageController extends Controller
      */
     public function convert()
     {
-        $inputNumber = isset($_REQUEST['input-number']) ? $_REQUEST['input-number'] : '';
-        $inputBase = isset($_REQUEST['input-base']) ? $_REQUEST['input-base'] : '';
-        $outputBase = isset($_REQUEST['output-base']) ? $_REQUEST['output-base'] : '';
-
-        $bc = new BaseConverter($inputNumber, $inputBase, $outputBase);
+        $bc = new BaseConverter();
+        $bc->setInputNumber(isset($_REQUEST['input-number']) ? $_REQUEST['input-number'] : '');
+        $bc->setInputBase(isset($_REQUEST['input-base']) ? $_REQUEST['input-base'] : '');
+        $bc->setOutputBase(isset($_REQUEST['output-base']) ? $_REQUEST['output-base'] : '');
 
         header('Content-Type: application/json');
         echo json_encode($bc->convertToUpper());

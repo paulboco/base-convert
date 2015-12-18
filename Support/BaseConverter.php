@@ -16,9 +16,9 @@ class BaseConverter
         $inputBase = 0,
         $outputBase = 0)
     {
-        $this->inputNumber = $inputNumber;
-        $this->inputBase = $inputBase;
-        $this->outputBase = $outputBase;
+        $this->inputNumber = (string) $inputNumber;
+        $this->inputBase = (float) $inputBase;
+        $this->outputBase = (float) $outputBase;
     }
 
     /**
@@ -48,7 +48,7 @@ class BaseConverter
     /**
      * Set input number.
      *
-     * @param  mixed  $number
+     * @param  string  $number
      * @return void
      */
     public function setInputNumber($number)
@@ -59,23 +59,23 @@ class BaseConverter
     /**
      * Set input base.
      *
-     * @param  mixed  $base
+     * @param  float  $base
      * @return void
      */
     public function setInputBase($base)
     {
-        $this->inputBase = $base;
+        $this->inputBase = (float) $base;
     }
 
     /**
      * Set output base.
      *
-     * @param  mixed  $base
+     * @param  float  $base
      * @return void
      */
     public function setOutputBase($base)
     {
-        $this->outputBase = $base;
+        $this->outputBase = (float) $base;
     }
 
     /**
