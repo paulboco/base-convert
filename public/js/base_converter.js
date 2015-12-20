@@ -2,10 +2,20 @@ new Vue({
     el: '#app',
     data: {
         inputNumber: '',
+        inputLengthMax: 18,
         inputLengthMaxed: false,
         inputBase: 10,
-        outputBase: 16,
+        outputBase: 10,
         result: ''
+    },
+    filters: {
+        // Separate thousands with commas.
+        decimal: function(number) {
+            if (this.outputBase == 10) {
+                return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            }
+            return number;
+        }
     },
     components: {
         'base-selector': {
@@ -24,9 +34,6 @@ new Vue({
             }
         }
     },
-    ready: function () {
-        this.convert();
-    },
     watch: {
         'inputNumber': function() {
             this.convert();
@@ -42,11 +49,11 @@ new Vue({
         cleanseInputNumber: function() {
             this.inputNumber = this.inputNumber
                 .replace(/[^A-Za-z0-9]/g, '')
-                .substring(0, 16);
-            this.markInputLengthMaxed();
+                .substring(0, this.inputLengthMax);
+            this.markInputNumberLengthMaxed();
         },
-        markInputLengthMaxed: function() {
-            this.inputLengthMaxed = this.inputNumber.length == 16;
+        markInputNumberLengthMaxed: function() {
+            this.inputLengthMaxed = this.inputNumber.length == this.inputLengthMax;
         },
         convert: function() {
             url = this.getUrl();

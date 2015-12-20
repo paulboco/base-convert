@@ -7,12 +7,12 @@
         <legend>Convert</legend>
         <div>
             <input type="text"
-                @keyup="cleanseInputNumber;markInputLengthMaxed"
+                @keyup="cleanseInputNumber"
                 v-model="inputNumber"
                 placeholder="Enter a number (alphanumeric only)"
                 autofocus
             >
-            <span class="warning" v-show="inputLengthMaxed">Only 16 digits allowed</span>
+            <span class="warning" v-show="inputLengthMaxed">Only {{ inputLengthMax }} digits allowed</span>
         </div>
         <div>
             <base-selector :base.sync="inputBase" label="From base:"></base-selector>
@@ -23,7 +23,7 @@
     </fieldset>
     <fieldset>
         <legend>Result</legend>
-        <label class="result" v-show="result != 0">{{ result }}</label>
+        <label class="result" v-show="result != 0">{{ result|decimal }}</label>
     </fieldset>
     <pre class="debug">{{ $data|json }}</pre>
 </div>
