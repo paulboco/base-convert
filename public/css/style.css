@@ -20,7 +20,14 @@ fieldset>div>label {
     /*padding-left: 10px;*/
 }
 fieldset>div>input {
+    display: inline-block;
+    margin-left: 10px;
     margin-bottom: 10px;
+    min-width: 350px;
+}
+fieldset>div>span.warning {
+    margin-left: 10px;
+    color: red;
 }
 footer {
     margin-top: 50px;

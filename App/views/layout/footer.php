@@ -1,5 +1,5 @@
         <footer>
-            <p>&copy; 2015 Base Converter</p>
+            <p>&copy; 2015 Boc Kronan</p>
         </footer>
     </div>
 </body>

@@ -2,6 +2,7 @@ new Vue({
     el: '#app',
     data: {
         inputNumber: '',
+        inputLengthMaxed: false,
         inputBase: 10,
         outputBase: 16,
         result: ''
@@ -38,16 +39,26 @@ new Vue({
         }
     },
     methods: {
+        cleanseInputNumber: function() {
+            this.inputNumber = this.inputNumber
+                .replace(/[^A-Za-z0-9]/g, '')
+                .substring(0, 16);
+            this.markInputLengthMaxed();
+        },
+        markInputLengthMaxed: function() {
+            this.inputLengthMaxed = this.inputNumber.length == 16;
+        },
         convert: function() {
-            var url = '/page/convert?input-number='
-                + this.inputNumber + '&input-base='
-                + this.inputBase + '&output-base='
-                + this.outputBase;
+            url = this.getUrl();
             this.$http.get(url).success(function(result) {
                 this.$set('result', result);
             }).error(function(error) {
                 console.log(error);
             });
+        },
+        getUrl: function() {
+            uri = [this.inputNumber, this.inputBase, this.outputBase].join('/');
+            return '/api/base_converter/' + uri;
         }
     },
 });

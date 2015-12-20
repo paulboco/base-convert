@@ -4,13 +4,15 @@
 
 <div id="app" v-cloak>
     <fieldset>
+        <legend>Convert</legend>
         <div>
-            <label class="header" for="inputNumber">Convert:</label>
             <input type="text"
+                @keyup="cleanseInputNumber;markInputLengthMaxed"
                 v-model="inputNumber"
-                placeholder="Enter a number"
+                placeholder="Enter a number (alphanumeric only)"
                 autofocus
             >
+            <span class="warning" v-show="inputLengthMaxed">Only 16 digits allowed</span>
         </div>
         <div>
             <base-selector :base.sync="inputBase" label="From base:"></base-selector>
@@ -44,6 +46,6 @@
 
 <script src="/js/vue.js"></script>
 <script src="/js/vue-resource.js"></script>
-<script src="/js/converter.js"></script>
+<script src="/js/base_converter.js"></script>
 
 <?php self::inject('layout/footer') ?>

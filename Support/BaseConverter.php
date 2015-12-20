@@ -28,6 +28,10 @@ class BaseConverter
      */
     public function convert()
     {
+        if (empty($this->inputNumber)) {
+            return '0';
+        }
+
         return base_convert(
             $this->inputNumber,
             $this->inputBase,

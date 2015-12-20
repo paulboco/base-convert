@@ -41,6 +41,22 @@ class Response
     {
         return function() use ($uri){
             header("Location: {$uri}");
+            die;
+        };
+    }
+
+    /**
+     * Return a JSON response.
+     *
+     * @param  string  $body
+     * @return Closure
+     */
+    public static function json($body)
+    {
+        return function() use ($body){
+            header('Content-Type: application/json');
+            echo json_encode($body);
+            die;
         };
     }
 }
