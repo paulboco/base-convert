@@ -9,7 +9,7 @@ new Vue({
         result: ''
     },
     filters: {
-        // Separate thousands with commas.
+        // Separate decimal thousands with commas.
         decimal: function(number) {
             if (this.outputBase == 10) {
                 return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
