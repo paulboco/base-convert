@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use Support\BaseConverter;
+use App\BaseConverter;
 use Support\Controller;
 
 class ApiController extends Controller

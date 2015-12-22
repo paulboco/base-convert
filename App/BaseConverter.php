@@ -1,6 +1,6 @@
 <?php
 
-namespace Support;
+namespace App;
 
 /**
  * Convert a number from one base to another.
@@ -16,9 +16,9 @@ class BaseConverter
         $inputBase = 0,
         $outputBase = 0)
     {
-        $this->inputNumber = (string) $inputNumber;
-        $this->inputBase = (float) $inputBase;
-        $this->outputBase = (float) $outputBase;
+        $this->setInputNumber((string) $inputNumber);
+        $this->setInputBase((float) $inputBase);
+        $this->setOutputBase((float) $outputBase);
     }
 
     /**

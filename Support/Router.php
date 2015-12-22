@@ -23,7 +23,7 @@ class Router
      *
      * @var string
      */
-    private $method = 'base_converter';
+    private $method = 'home';
 
     /**
      * The request parameters.
