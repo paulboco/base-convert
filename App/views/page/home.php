@@ -1,5 +1,7 @@
 <?php self::inject('layout/header') ?>
 
-<h1>Home</h1>
+<div class="container-fluid">
+    <h1>Home</h1>
+</div>
 
 <?php self::inject('layout/footer') ?>

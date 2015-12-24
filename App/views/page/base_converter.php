@@ -1,36 +1,39 @@
 <?php self::inject('layout/header') ?>
 
-<h1>Base Converter</h1>
+<div class="container-fluid">
+    <h1>Base Converter</h1>
 
-<div id="app" v-cloak>
-    <fieldset>
-        <legend>Convert</legend>
-        <div>
+    <form id="app" v-on:submit.prevent v-cloak>
+        <fieldset class="form-group">
+            <label>Convert</label>
+            <small class="warning" v-show="inputLengthMaxed">Only {{ inputLengthMax }} digits allowed</small>
             <input type="text"
+                class="form-control"
                 @keyup="cleanseInputNumber"
                 v-model="inputNumber"
                 placeholder="Enter a number (alphanumeric only)"
                 autofocus
             >
-            <span class="warning" v-show="inputLengthMaxed">Only {{ inputLengthMax }} digits allowed</span>
-        </div>
-        <div>
-            <base-selector :base.sync="inputBase" label="From base:"></base-selector>
-        </div>
-        <div>
-            <base-selector :base.sync="outputBase" label="To base:"></base-selector>
-        </div>
-    </fieldset>
-    <fieldset>
-        <legend>Result</legend>
-        <label class="result" v-show="result != 0">{{ result|decimal }}</label>
-    </fieldset>
-    <!-- <pre class="debug">{{ $data|json }}</pre> -->
+        </fieldset>
+        <fieldset class="form-group">
+            <label>From Base:</label>
+            <div>
+                <base-selector :base.sync="inputBase" label="From base:"></base-selector>
+            </div>
+        </fieldset>
+        <fieldset class="form-group">
+            <label>To Base:</label>
+            <div>
+                <base-selector :base.sync="outputBase" label="From base:"></base-selector>
+            </div>
+        </fieldset>
+        <h2 v-show="result">Result: <span class="label label-default">{{ result|decimal }}</span></h2>
+        <!-- <pre class="debug">{{ $data|json }}</pre> -->
+    </form>
 </div>
 
 <template id="base-selector-template">
-    <label class="header">{{ label }}</label>
-    <label v-for="baseRadioOption in baseRadioOptions">
+    <label class="radio-inline" v-for="baseRadioOption in baseRadioOptions">
         <input type="radio"
             value="{{ baseRadioOption.value }}"
             v-model=base

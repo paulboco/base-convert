@@ -14,8 +14,8 @@ class ApiController extends Controller
      */
     public function base_converter($inputNumber = null, $inputBase = 10, $outputBase = 16)
     {
-        $bc = new BaseConverter($inputNumber, $inputBase, $outputBase);
+        $number = base_convert($inputNumber, $inputBase, $outputBase) ?: '';
 
-        return $this->response->json($bc->convertToUpper());
+        return $this->response->json($number);
     }
 }
