@@ -49,6 +49,6 @@
 
 <script src="/js/vue.js"></script>
 <script src="/js/vue-resource.js"></script>
-<script src="/js/base_converter.js"></script>
+<script src="/js/base_convert.js"></script>
 
 <?php self::inject('layout/footer') ?>

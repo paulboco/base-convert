@@ -65,7 +65,7 @@ new Vue({
         },
         getUrl: function() {
             uri = [this.inputNumber, this.inputBase, this.outputBase].join('/');
-            return '/api/base_converter/' + uri;
+            return '/api/base_convert/' + uri;
         }
     },
 });

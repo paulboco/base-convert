@@ -21,8 +21,18 @@ class PageController extends Controller
      *
      * @return view
      */
-    public function base_converter()
+    public function base_convert()
     {
-        return $this->view->make('page/base_converter');
+        return $this->view->make('page/base_convert');
+    }
+
+    /**
+     * The square root page.
+     *
+     * @return view
+     */
+    public function sqrt()
+    {
+        return $this->view->make('page/sqrt');
     }
 }
