@@ -20,7 +20,7 @@ new Vue({
     components: {
         'base-selector': {
             template: '#base-selector-template',
-            props: ['base', 'label'],
+            props: ['base', 'name', 'label'],
             data: function() {
                 return {
                     baseRadioOptions: [

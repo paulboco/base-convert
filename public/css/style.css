@@ -1,8 +1,32 @@
 div.container {
     margin-top: 3.5vh;
 }
+div.content {
+    border-left: solid 1px silver;
+    min-height: 900px;
+}
+/* Sidebar navigation */
+.nav-sidenav {
+    margin-right: -21px; /* 20px padding + 1px border */
+    margin-bottom: 20px;
+    margin-left: -20px;
+}
+.nav-sidenav > li > a {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.nav-sidenav > .active > a,
+.nav-sidenav > .active > a:hover,
+.nav-sidenav > .active > a:focus {
+    color: #fff;
+    background-color: #428bca;
+}
+
 h1 {
     margin: 5vh 0;
+}
+h2.result {
+    margin-top: 5vh;
 }
 small.warning {
     margin-left: 1vw;
@@ -15,6 +39,10 @@ footer {
 }
 pre.debug {
     color: green;
+}
+label.header {
+    min-width: 100px;
+    font-weight: bold;
 }
 label.dropdown {
     margin-left: 20px;
