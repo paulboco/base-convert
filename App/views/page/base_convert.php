@@ -1,14 +1,14 @@
 <?php self::inject('layout/header') ?>
 
 <div class="container-fluid">
-    <h1>Base Converter</h1>
+    <h1 class="page-header">Base Converter</h1>
 
     <form id="app" v-on:submit.prevent v-cloak>
         <fieldset class="form-group">
             <label class="header">Convert</label>
             <small class="warning" v-show="inputLengthMaxed">Only {{ inputLengthMax }} digits allowed</small>
             <input type="text"
-                class="form-control"
+                class="form-control input-lg"
                 @keyup="cleanseInputNumber"
                 v-model="inputNumber"
                 placeholder="Enter a number (alphanumeric only)"
@@ -17,7 +17,7 @@
         </fieldset>
         <base-selector :base.sync="inputBase" name="inputBase" label="From base:"></base-selector>
         <base-selector :base.sync="outputBase" name="outputBase" label="To base:"></base-selector>
-        <h2 class="result" v-show="result">Result: <span class="label label-default">{{ result|decimal }}</span></h2>
+        <h1 class="result" v-show="result"><span class="label label-primary">{{ result|decimal }}</span></h1>
         <!-- <pre class="debug">{{ $data|json }}</pre> -->
     </form>
 </div>

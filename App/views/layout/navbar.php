@@ -1,3 +1,3 @@
-<nav class="navbar navbar-full navbar-fixed navbar-dark bg-primary">
-    <a class="navbar-brand" href="/">PHP Math Functions</a>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <a class="navbar-brand" href="/">Vue JS Demo</a>
 </nav>

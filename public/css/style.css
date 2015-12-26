@@ -1,31 +1,17 @@
+* {
+    font-size: 17px;
+}
+body {
+    margin-top: 60px;
+}
 div.container {
     margin-top: 3.5vh;
 }
 div.content {
     border-left: solid 1px silver;
-    min-height: 900px;
+    min-height: 700px;
 }
-/* Sidebar navigation */
-.nav-sidenav {
-    margin-right: -21px; /* 20px padding + 1px border */
-    margin-bottom: 20px;
-    margin-left: -20px;
-}
-.nav-sidenav > li > a {
-    padding-right: 20px;
-    padding-left: 20px;
-}
-.nav-sidenav > .active > a,
-.nav-sidenav > .active > a:hover,
-.nav-sidenav > .active > a:focus {
-    color: #fff;
-    background-color: #428bca;
-}
-
-h1 {
-    margin: 5vh 0;
-}
-h2.result {
+h1.result {
     margin-top: 5vh;
 }
 small.warning {
@@ -39,6 +25,9 @@ footer {
 }
 pre.debug {
     color: green;
+}
+label {
+    font-weight: 500;
 }
 label.header {
     min-width: 100px;

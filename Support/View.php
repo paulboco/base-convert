@@ -19,6 +19,13 @@ class View
     private $extension = '.php';
 
     /**
+     * The shared data.
+     *
+     * @var array
+     */
+    protected $shared = array();
+
+    /**
      * Get an instance of the view class.
      *
      * @return View
@@ -44,6 +51,17 @@ class View
     }
 
     /**
+     * Share data with all views.
+     *
+     * @param  array  $data
+     * @return void
+     */
+    public function share($data)
+    {
+        $this->shared = array_merge($this->shared, $data);
+    }
+
+    /**
      * Inject a view.
      *
      * @param  string  $template
@@ -64,6 +82,7 @@ class View
      */
     private function render($template, $data = array())
     {
+        extract($this->shared);
         extract($data);
 
         require BASE_PATH . $this->path . $template . $this->extension;

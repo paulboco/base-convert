@@ -33,6 +33,13 @@ class Router
     private $parameters = array();
 
     /**
+     * The segments array.
+     *
+     * @var array
+     */
+    private static $segments;
+
+    /**
      * Create a new router.
      *
      * @return void
@@ -66,10 +73,28 @@ class Router
         }
 
         $segments = $this->getSegments();
+        self::$segments = $segments;
 
         $this->setController(array_shift($segments));
         $this->setMethod(array_shift($segments));
         $this->setParameters($segments);
+    }
+
+    /**
+     * Get a URI segment by position.
+     *
+     * @param  mixed  $position
+     * @return mixed
+     */
+    public static function getSegment($position = null)
+    {
+        if (is_null($position)) {
+            return self::$segments;
+        }
+
+        if (isset(self::$segments[$position])) {
+            return self::$segments[$position];
+        }
     }
 
     /**
@@ -143,7 +168,7 @@ class Router
         }
 
         return call_user_func_array(
-            array(new $this->controller(new View, new Response), $this->method),
+            array(new $this->controller(new View, new Request, new Response), $this->method),
             $this->parameters
         );
     }

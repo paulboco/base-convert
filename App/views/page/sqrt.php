@@ -1,21 +1,21 @@
 <?php self::inject('layout/header') ?>
 
 <div class="container-fluid">
-    <h1>Square Root</h1>
+    <h1 class="page-header">Square Root</h1>
 
     <form id="app" v-on:submit.prevent v-cloak>
         <fieldset class="form-group">
-            <label class="header">The square root of:</label>
+            <label class="header">The square root of</label>
             <small class="warning" v-show="inputLengthMaxed">Only {{ inputLengthMax }} digits allowed</small>
             <input type="text"
-                class="form-control"
+                class="form-control input-lg"
                 @keyup="cleanseInputNumber"
                 v-model="inputNumber"
                 placeholder="Enter a number (numeric only)"
                 autofocus
             >
         </fieldset>
-        <h2 class="result" v-show="result">is <span class="label label-default">{{ result }}</span></h2>
+        <h1 class="result" v-show="result"><span class="label label-primary">{{ result }}</span></h1>
         <!-- <pre class="debug">{{ $data|json }}</pre> -->
     </form>
 </div>
