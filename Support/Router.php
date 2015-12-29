@@ -62,6 +62,23 @@ class Router
     }
 
     /**
+     * Get a URI segment by position.
+     *
+     * @param  mixed  $position
+     * @return mixed
+     */
+    public static function getSegment($position = null)
+    {
+        if (is_null($position)) {
+            return self::$segments;
+        }
+
+        if (isset(self::$segments[$position])) {
+            return self::$segments[$position];
+        }
+    }
+
+    /**
      * Parse the URI into controller, method and parameters properties.
      *
      * @return void
@@ -78,23 +95,6 @@ class Router
         $this->setController(array_shift($segments));
         $this->setMethod(array_shift($segments));
         $this->setParameters($segments);
-    }
-
-    /**
-     * Get a URI segment by position.
-     *
-     * @param  mixed  $position
-     * @return mixed
-     */
-    public static function getSegment($position = null)
-    {
-        if (is_null($position)) {
-            return self::$segments;
-        }
-
-        if (isset(self::$segments[$position])) {
-            return self::$segments[$position];
-        }
     }
 
     /**
